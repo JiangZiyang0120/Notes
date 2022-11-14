@@ -1,0 +1,1950 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="<strong>自用笔记</strong>：仅供参考<br> note of 《C++ Primer》, written in English">
+      
+      
+        <meta name="author" content="江子扬-Jasper Yang">
+      
+      
+        <link rel="canonical" href="https://jzy-planet.com/Notes/Technical%20Notes/Programming%20Language/C%2B%2B/C%2B%2B_learning_notes/">
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>C++ learning notes - 江子扬的笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.472b142f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.08040f6c.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="None" data-md-color-accent="None">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#c-learning-notes" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../.." title="江子扬的笔记" class="md-header__button md-logo" aria-label="江子扬的笔记" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            江子扬的笔记
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              C++ learning notes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/JiangZiyang0120/Notes" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="江子扬的笔记" class="md-nav__button md-logo" aria-label="江子扬的笔记" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    江子扬的笔记
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/JiangZiyang0120/Notes" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        江子扬的笔记
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Technical Notes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Technical Notes" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Technical Notes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          Programming Language
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Programming Language" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Programming Language
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1_1" type="checkbox" id="__nav_2_1_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_1">
+          C++
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="C++" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          C++
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          C++ learning notes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        C++ learning notes
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#generic-algorithm" class="md-nav__link">
+    Generic algorithm
+  </a>
+  
+    <nav class="md-nav" aria-label="Generic algorithm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lambda" class="md-nav__link">
+    lambda
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dynamic-memory" class="md-nav__link">
+    dynamic memory
+  </a>
+  
+    <nav class="md-nav" aria-label="dynamic memory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shared_ptr" class="md-nav__link">
+    shared_ptr&lt;&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unique_ptr" class="md-nav__link">
+    unique_ptr&lt;&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weak_ptr" class="md-nav__link">
+    weak_ptr&lt;&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#allocator" class="md-nav__link">
+    allocator
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copy-assign-and-destroy" class="md-nav__link">
+    Copy, Assign and Destroy
+  </a>
+  
+    <nav class="md-nav" aria-label="Copy, Assign and Destroy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#specific-member-function-to-control-above-three-operations" class="md-nav__link">
+    specific member function to control above three operations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy-constructor" class="md-nav__link">
+    copy constructor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy-assignment-constructor" class="md-nav__link">
+    copy-assignment constructor
+  </a>
+  
+    <nav class="md-nav" aria-label="copy-assignment constructor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stop-the-copy" class="md-nav__link">
+    stop the copy
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#destructor" class="md-nav__link">
+    destructor
+  </a>
+  
+    <nav class="md-nav" aria-label="destructor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#principle" class="md-nav__link">
+    principle
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy-control-and-resource-management" class="md-nav__link">
+    copy control and resource management
+  </a>
+  
+    <nav class="md-nav" aria-label="copy control and resource management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#classes-which-behave-like-a-value" class="md-nav__link">
+    classes which behave like a value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classes-which-behave-like-a-pointer" class="md-nav__link">
+    classes which behave like a pointer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swap" class="md-nav__link">
+    swap
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#move-constructor" class="md-nav__link">
+    move constructor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#move-assignment-constructor" class="md-nav__link">
+    move assignment constructor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference-qualifier" class="md-nav__link">
+    reference qualifier
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overloading-and-type-conversion" class="md-nav__link">
+    overloading and type conversion
+  </a>
+  
+    <nav class="md-nav" aria-label="overloading and type conversion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-concept" class="md-nav__link">
+    basic concept
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operators" class="md-nav__link">
+    operators
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-table" class="md-nav__link">
+    function table
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-oriented-programming" class="md-nav__link">
+    Object-Oriented Programming
+  </a>
+  
+    <nav class="md-nav" aria-label="Object-Oriented Programming">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inheritance" class="md-nav__link">
+    inheritance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scope" class="md-nav__link">
+    scope
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-binding" class="md-nav__link">
+    dynamic binding
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#template" class="md-nav__link">
+    template
+  </a>
+  
+    <nav class="md-nav" aria-label="template">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#friend-declaration" class="md-nav__link">
+    friend declaration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference-collapsing" class="md-nav__link">
+    reference collapsing:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameter-packet" class="md-nav__link">
+    parameter packet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specialize" class="md-nav__link">
+    specialize
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#generic-algorithm" class="md-nav__link">
+    Generic algorithm
+  </a>
+  
+    <nav class="md-nav" aria-label="Generic algorithm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lambda" class="md-nav__link">
+    lambda
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dynamic-memory" class="md-nav__link">
+    dynamic memory
+  </a>
+  
+    <nav class="md-nav" aria-label="dynamic memory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shared_ptr" class="md-nav__link">
+    shared_ptr&lt;&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unique_ptr" class="md-nav__link">
+    unique_ptr&lt;&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weak_ptr" class="md-nav__link">
+    weak_ptr&lt;&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#allocator" class="md-nav__link">
+    allocator
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copy-assign-and-destroy" class="md-nav__link">
+    Copy, Assign and Destroy
+  </a>
+  
+    <nav class="md-nav" aria-label="Copy, Assign and Destroy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#specific-member-function-to-control-above-three-operations" class="md-nav__link">
+    specific member function to control above three operations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy-constructor" class="md-nav__link">
+    copy constructor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy-assignment-constructor" class="md-nav__link">
+    copy-assignment constructor
+  </a>
+  
+    <nav class="md-nav" aria-label="copy-assignment constructor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stop-the-copy" class="md-nav__link">
+    stop the copy
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#destructor" class="md-nav__link">
+    destructor
+  </a>
+  
+    <nav class="md-nav" aria-label="destructor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#principle" class="md-nav__link">
+    principle
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy-control-and-resource-management" class="md-nav__link">
+    copy control and resource management
+  </a>
+  
+    <nav class="md-nav" aria-label="copy control and resource management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#classes-which-behave-like-a-value" class="md-nav__link">
+    classes which behave like a value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classes-which-behave-like-a-pointer" class="md-nav__link">
+    classes which behave like a pointer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swap" class="md-nav__link">
+    swap
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#move-constructor" class="md-nav__link">
+    move constructor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#move-assignment-constructor" class="md-nav__link">
+    move assignment constructor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference-qualifier" class="md-nav__link">
+    reference qualifier
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overloading-and-type-conversion" class="md-nav__link">
+    overloading and type conversion
+  </a>
+  
+    <nav class="md-nav" aria-label="overloading and type conversion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-concept" class="md-nav__link">
+    basic concept
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operators" class="md-nav__link">
+    operators
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-table" class="md-nav__link">
+    function table
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-oriented-programming" class="md-nav__link">
+    Object-Oriented Programming
+  </a>
+  
+    <nav class="md-nav" aria-label="Object-Oriented Programming">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inheritance" class="md-nav__link">
+    inheritance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scope" class="md-nav__link">
+    scope
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-binding" class="md-nav__link">
+    dynamic binding
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#template" class="md-nav__link">
+    template
+  </a>
+  
+    <nav class="md-nav" aria-label="template">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#friend-declaration" class="md-nav__link">
+    friend declaration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference-collapsing" class="md-nav__link">
+    reference collapsing:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameter-packet" class="md-nav__link">
+    parameter packet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specialize" class="md-nav__link">
+    specialize
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/JiangZiyang0120/Notes/edit/master/docs/Technical Notes/Programming Language/C++/C++_learning_notes.md" title="编辑此页" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="c-learning-notes">C++ learning notes</h1>
+<h2 id="generic-algorithm">Generic algorithm</h2>
+<h3 id="lambda">lambda</h3>
+<p>[capture list] (parameter list) -&gt; return type {function body}</p>
+<p>we can ignore the <em>parameter list</em> and <em>return type</em>, but the <em>capture list</em> and the <em>function body</em> must be reserved</p>
+<p>eg:</p>
+<pre><code class="language-cpp">[](const string &amp;a, const string &amp;b)
+    {return a.size() &lt; b.size();}
+</code></pre>
+<h2 id="dynamic-memory">dynamic memory</h2>
+<h3 id="shared_ptr">shared_ptr&lt;&gt;</h3>
+<p>use function make_shared&lt;&gt;()</p>
+<h3 id="unique_ptr">unique_ptr&lt;&gt;</h3>
+<p>must be initialized once the pointer is created</p>
+<h3 id="weak_ptr">weak_ptr&lt;&gt;</h3>
+<p>can be assigned</p>
+<h3 id="allocator">allocator</h3>
+<pre><code class="language-cpp">allocator&lt;string&gt; alloc;
+auto const p = alloc.allocate(n);
+weak_ptr&lt;string[]&gt; q = p;
+for(int i = 0; i != n; ++ i){
+    alloc.construct(q++, &quot;hello world!&quot;);
+}
+for (int i = 0; i != n; ++i) {
+    cout &lt;&lt; *(p + i) &lt;&lt; endl;
+}
+alloc.deallocate(p,n);
+</code></pre>
+<blockquote>
+<p><code>cpp
+delete p;     //provided p points to an object or be nullptr
+delete [] p;  //provided p points to an array or be nullptr</code></p>
+</blockquote>
+<h2 id="copy-assign-and-destroy">Copy, Assign and Destroy</h2>
+<h3 id="specific-member-function-to-control-above-three-operations">specific member function to control above three operations</h3>
+<p>copy constructor</p>
+<p>copy-assignment operator</p>
+<p>move constructor</p>
+<p>move-assignment operator</p>
+<p>destructor</p>
+<h3 id="copy-constructor">copy constructor</h3>
+<pre><code class="language-cpp">class Foo {
+    public:
+        /*
+        *default defination in class body is inline
+        *if we don't hope so, we need to define &quot;= default&quot; out of the class body
+        *generally, function defined in class body is inline
+        */
+        Foo() = default; //default constructor
+        Foo(const Foo&amp;); //copy constructor
+        //first parameter must be a reference, and almost always be a const reference
+}
+
+class Foo2{
+    public:
+        //explicit prevents implicit conversion
+        explicit Foo2() = default;
+        explicit Foo2(int num): n(num) {}
+    private:
+        int n;
+};
+</code></pre>
+<h3 id="copy-assignment-constructor">copy-assignment constructor</h3>
+<pre><code class="language-cpp">class Foo {
+    public:
+        /*
+        *we define a copy-assignment constructor below
+        *keyword operator+symbol is an overloaded operator
+        *which defines an operator(like =,+,- and so on)
+        */
+        Foo &amp;operator=(const Foo&amp; f){
+            this-&gt;n = f-&gt;n;
+            return *this;
+        }
+    private:
+        int n;
+}
+
+int main(){
+    Foo f1, f2(); //f2 is default initialized
+    f1 = f2; //equals to f1(f2)
+};
+</code></pre>
+<h4 id="stop-the-copy">stop the copy</h4>
+<p>if we don't want a copy operation, we need to define it as the <strong>delete function</strong></p>
+<pre><code class="language-cpp">class NoCopy {
+    public:
+        NoCopy() = default;
+        /*
+        *&quot;= delete&quot; must be present when we firstly declare it.
+        *
+        *by the way, we can delete any functions(except the destructor),
+        *thongh i haven't clearly understood its effect and affect.
+        *one interesting and meaningful example is, if a class's member
+        *can't be implicitly initialized, copied, assigned or destroied,
+        *its implicit initializer's member function is deleted.
+        *It prevents from creating indestructible object.
+        *
+        *principle: destructor can't be delete
+        */
+        NoCopy(const NoCopy &amp;) = delete;    //stop the copy
+        NoCopy &amp;operator=(const NoCopy &amp;) = delete; //stop the copy-assignment
+        ~NoCopy() = default;
+        /*
+        *we can put the copy constructor into private zone to prevent from copying it.
+        *we need to declare it in the private zone first
+        *then define it in the public zone.(in order to prevent friend use it)
+        *however, this practice is not recommended.
+        */
+}
+</code></pre>
+<h3 id="destructor">destructor</h3>
+<p>destructor delete the resource used by objects, and destruct non-static elements</p>
+<p>it is used whenever the object is destroyed</p>
+<blockquote>
+<p>implicitly destruct a pointer won't delete the object it points.</p>
+<p>on the contrary, smart pointer is class type with destructor, thus it can delete the object</p>
+</blockquote>
+<pre><code class="language-cpp">class Foo {
+    public:
+        ~Foo() = default; //destructor.this function can't be overloaded
+};
+</code></pre>
+<h4 id="principle">principle</h4>
+<ul>
+<li>define destructor before assuring weather it needs a destructor or not</li>
+<li>if a class needs a copy constructor, it always need a copy-assignment constructor. And vice verse</li>
+</ul>
+<h3 id="copy-control-and-resource-management">copy control and resource management</h3>
+<p>behave like a value: the copy and the original object is fully independent</p>
+<p>behave like a pointer: the copy and the original object point to the same underlying data</p>
+<h4 id="classes-which-behave-like-a-value">classes which behave like a value</h4>
+<pre><code class="language-cpp">class HasPtr {
+    public:
+        HasPtr(const std::string &amp;s = std::string()):
+            ps(new std::string(s)), i(0) {}
+        //every HasPtr's copy has its own string member with equal value
+        HasPtr(const HasPtr &amp;p):
+            ps(new std::string(*(p.ps))), i(p.i) {}
+        /*
+        *most copy assignment constructor combines the function
+        *of destructor and copy constructor.
+        *
+        *for instance, copy assignment constructor
+        *destroys the left side object's resource as destructor,
+        *and copies data from the right side object
+        *to the left one like copy constructor
+        *
+        *if possible, copy assignment constructor should be exception safe.
+        *which means when an exception occurs,
+        *it can put the left side object in a meaningful state
+        */
+        HasPtr &amp;operator=(const HasPtr &amp;);
+        ~HasPtr() {
+            delete ps;
+        }
+    private:
+        std::string *ps;
+        int i;
+};
+
+/*
+*in this case, to ensure exception safety,
+*we copy the right object's data first
+*to ensure exception safety before assignment.
+*then we delete the resource of the left object and execute assignment
+*/
+HasPtr &amp;HasPtr::operator=(const HasPtr &amp;rhs) {
+    auto newp = new std::string(*rhs.ps);
+    delete ps;
+    ps = newp;
+    i = rhs.i;
+    return *this;
+}
+</code></pre>
+<h4 id="classes-which-behave-like-a-pointer">classes which behave like a pointer</h4>
+<p>use reference count to control the underlying data</p>
+<pre><code class="language-cpp">class HasPtr {
+    public:
+        HasPtr(const std::string &amp;s = std::string()):
+            ps(new std::string(s)), i(0), use(new std::size_t(1)) {}
+        //copy the pointer to ensure they point to the same underlying data
+        //increase the reference count
+        HasPtr(const HasPtr &amp;p):
+            ps(p.ps), i(p.i), use(p.use) {
+            ++*use;
+        }
+        HasPtr &amp;operator=(const HasPtr &amp;);
+        ~HasPtr();
+    private:
+        std::string *ps;
+        int i;
+        std::size_t *use; //reference count
+
+};
+
+HasPtr::~HasPtr() {
+    if (--*use == 0) {
+        delete ps;
+        delete use;
+    }
+}
+
+HasPtr &amp;HasPtr::operator=(const HasPtr &amp;rhs) {
+    ++*rhs.use;
+
+    //execute the left object's destructor
+    if (--*use == 0) {
+        delete ps;
+        delete use;
+    }
+
+    //execute assignment
+    ps = rhs.ps;
+    i = rhs.i;
+    use = rhs.use;
+    return *this;
+}
+</code></pre>
+<h3 id="swap">swap</h3>
+<p>we can swap the pointer to decrease extra memory allocation</p>
+<pre><code class="language-cpp">class HasPtr {
+    friend void swap(HasPtr &amp;, HasPtr &amp;);
+}
+/*
+*if a menber of a class has its own swap function,
+*use the std::swap is an error
+*and if we implicitly use swap function, the compiler use the overloaded one by default
+*/
+inline void swap(HasPtr &amp;lhs, HasPtr &amp;rhs){
+    using std::swap;
+    swap(lhs.ps,rhs.ps);
+    swap(lhs.i, rhs.i);
+}
+
+int main(){
+    HasPtr h1(),h2();
+    using std::swap;
+    swap(h1,h2); //use the overloaded one
+}
+
+//tip:this function can't overload the HasPtr &amp;HasPtr::operator=(HasPtr &amp;rhs)
+HasPtr &amp;HasPtr::operator=(HasPtr rhs){ //parameter is a copy, not a reference
+    swap(*this, rhs);
+    return *this; //rhs is destroyed
+};
+</code></pre>
+<h3 id="move-constructor">move constructor</h3>
+<blockquote>
+<p>library container, string and shared_ptr class support both move and copy operation</p>
+<p>IO class and unique_ptr class can be moved, but can't be copied</p>
+<p>rvalue reference must be bound to an rvalue. we get rvalue reference through &amp;&amp; instead of &amp;</p>
+<p>rvalue reference must be bound to an object ready to be destroyed</p>
+<p>therefore, we can freely move an rvalue reference resource to another object</p>
+<p>moreover, we can bound a const lvalue reference to an rvalue, as well</p>
+<p>expression returns an rvalue. But rvalue reference variate itself is a lvalue</p>
+<p>eg:</p>
+<p><code>cpp
+int i = 42;
+int &amp;r = i;
+const int &amp;r2 = i * 42;
+int &amp;&amp;r3 = i * 42;
+int &amp;&amp;r4 = r3; //illegal</code></p>
+<p>all of them is legal except the last one</p>
+</blockquote>
+<p>std::move avails to use a lvalue as an rvalue. What's more, we must recognize that executing move means we promote not to use the original element unless we assign or destruct it.</p>
+<pre><code class="language-cpp">int &amp;&amp;r4 = std::move(r3); //legal
+//use std::move instead of move in order to prevent from potential naming conflict
+</code></pre>
+<p>an example of move constructor</p>
+<pre><code class="language-cpp">StrVec::StrVec(StrVec &amp;&amp;s) noexcept //move operation shouldn't throw error
+//initializer take over resource of s
+    : elements(s.elements), first_feet(s.first_feet), cap(s.cap) {
+    s.elements = s.first_feet = s.cap = nullptr; 
+                                    //brilliant!
+                                    //get the spark of controlling dynamic memory!
+    //now destructing s is safe
+    //i wander weather we permit s to be meaningfully assigned, 
+    //and after insperation, i find that void StrVec::push_back(const std::string &amp;)
+    //has considered this situation. Now both assignment and destruction is ligal.
+    //and at the same time we can't read its value
+    //(certainly i put the whole code into my cpp file to avoid making my notes bloated)
+}
+</code></pre>
+<h3 id="move-assignment-constructor">move assignment constructor</h3>
+<pre><code class="language-cpp">StrVec &amp;StrVec::operator=(StrVec &amp;&amp;rhs) noexcept {
+    //check self-assignment
+    //I guess this operation is designed to avoid freeing itself
+    //otherwise it may move meaningless data and put itself in a meaningless state
+    if (this != &amp;rhs) {
+        free(); //release itself
+        elements = rhs.elements;
+        first_feet = rhs.first_feet;
+        cap = rhs.cap;
+        //put rhs in a destructible state
+        rhs.elements = rhs.first_feet = rhs.cap = nullptr;
+    }
+
+    return *this;
+}
+</code></pre>
+<pre><code class="language-cpp">//copy and move operation's overload
+StrVec v1, v2;
+v1 = v2;                    //copy assignment constructor
+StrVec getVec(istream &amp;);   //getVec returns an rvalue
+                            //because getVec() dosen't return value instead of reference
+                            //up to now getVec() is just a declaration
+
+v2 = getVec(cin);           //move assignment constructor
+/*
+*if we didn't define a move constructor
+*the compiler will convert an rvalue reference to a const reference
+*and call copy constructor
+*/
+</code></pre>
+<h3 id="reference-qualifier">reference qualifier</h3>
+<p>C++ permit us to assign value to a rvalue object(so weird)</p>
+<p>eg:</p>
+<pre><code class="language-cpp">string s1(&quot;a&quot;), s2(3, 'b');     //s1 = &quot;a&quot;, s2 = &quot;bbb&quot;;
+/*
+*(s1 + s2) is an rvalue which never affects s1 and s2's value without assignment
+*usually it is created by compiler and released soon
+*the following expression execute:
+*   create a string temp_s = s1 + s2 = &quot;abbb&quot;;
+*   assign &quot;Wow&quot; to temp_s and return &quot;Wow&quot;;
+*   assign &quot;Wow&quot; to s3;
+*   release temp_s
+*Just from my own guess.If there's something wrong, I'll correct it
+*/
+string s3 = (s1 + s2) = &quot;Wow&quot;;
+cout &lt;&lt; s3 &lt;&lt; endl;
+return 0;
+</code></pre>
+<p>we can use the reference qualifier to enforce the left object is an lvalue or an rvalue</p>
+<pre><code class="language-cpp">class Foo {
+    public:
+        //the &amp; in the back of parameter list enforce the left object is an lvalue
+        Foo &amp;operator=(const Foo&amp;) &amp;; 
+    //
+};
+
+Foo &amp;Foo::operator=(const Foo&amp; rhs) &amp;{
+    //
+    return *this;
+}
+
+class Foo {
+    public:
+        Foo someMember() const &amp;; //const should be in front of reference qualifier
+}
+</code></pre>
+<p>reference qualifier and overloaded</p>
+<pre><code class="language-cpp">class Foo{
+    public:
+        Foo sorted() &amp;&amp;;
+        Foo sorted() const &amp;;
+    private:
+        vector&lt;int&gt; data;
+};
+
+//because object is an rvalue, we can change itself without any affection
+Foo Foo::sorted() &amp;&amp;{ 
+    sort(data.begin(), data.end());
+    return *this;
+}
+
+//object is an lvalue, thus we can't affect its value
+Foo Foo::sorted() const &amp;{
+    Foo temp(*this);
+    sort(temp.data.begin(), temp.data.end());
+    return temp;
+}
+</code></pre>
+<h2 id="overloading-and-type-conversion">overloading and type conversion</h2>
+<h3 id="basic-concept">basic concept</h3>
+<ul>
+<li>
+<p>an operator function should be a member of a class or have at least than one class type parameter</p>
+</li>
+<li>
+<p>which means we can't overload operators acting on the build-in type</p>
+</li>
+<li>
+<p>overloaded operator's priority and associative law is the same as the original operator</p>
+</li>
+</ul>
+<p><strong>operators can be overloaded</strong></p>
+<table>
+<thead>
+<tr>
+<th>+</th>
+<th>-</th>
+<th>*</th>
+<th>/</th>
+<th>%</th>
+<th>^</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&amp;</td>
+<td></td>
+<td></td>
+<td>~</td>
+<td>!</td>
+<td>,</td>
+<td>=</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>&gt;</td>
+<td>&lt;=</td>
+<td>&gt;=</td>
+<td>++</td>
+<td>--</td>
+<td></td>
+</tr>
+<tr>
+<td>&lt;&lt;</td>
+<td>&gt;&gt;</td>
+<td>==</td>
+<td>!=</td>
+<td>&amp;&amp;</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>+=</td>
+<td>-=</td>
+<td>/=</td>
+<td>%=</td>
+<td>^=</td>
+<td>&amp;=</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>=</td>
+<td>*=</td>
+<td>&lt;&lt;=</td>
+<td>&gt;&gt;=</td>
+<td>[]</td>
+<td>()</td>
+</tr>
+<tr>
+<td>-&gt;</td>
+<td>-&gt;*</td>
+<td>new</td>
+<td>new[]</td>
+<td>delete</td>
+<td>delete[]</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>operators can not be overloaded</strong></p>
+<table>
+<thead>
+<tr>
+<th>::</th>
+<th>.*</th>
+<th>.</th>
+<th>? :</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="operators">operators</h3>
+<p>there are various of operators overloading practice. and you know, <em>cujus rei demonstrationem mirabilem sane detexi. Hanc marginis exiguitas non caperet</em>.(I'm sure I've discovered a wonderful demonstration, but the space here is too small to fill it). so I write them all down in my practice .cpp file and just note some announcements there.</p>
+<p>The essence of operator overloading is a function call. therefore we can't save  the original order of evaluation and the short circuit evaluation. and that's why we don't advice you to overload comma, address, logic and, logic or.</p>
+<p>when we define an operator as a member function, its left operand must be an object of the operator's class.</p>
+<p>operator(=), index([]), call(()), member accession(-&gt;) operator must be member function of class.</p>
+<p>ostream(&lt;&lt;), istream(&gt;&gt;) can't be member function.</p>
+<p>index operator usually define two overloading versions, the const one and the nonconst one.</p>
+<p>increase and decrease operators usually be set as member functions.</p>
+<pre><code class="language-cpp">strBlobPtr &amp;operator++();       //preoperator
+strBlobPtr operator++(int);     //postoperator
+
+strBlobPtr strBlobPtr::operator++(int) {
+    strBlobPtr ret = *this;
+    ++*this;
+    return ret;
+}
+</code></pre>
+<p>if we overload the call operator, the object of this class is called function object, because we can call this object. function object is usually used as actual parameter of generic algorithm. moreover, <a href="https://blog.csdn.net/YangZejia0120/article/details/118713608?spm=1001.2014.3001.5501"><strong>lambda</strong></a> is an unnamed class' unnamed object, whose call operator is overloaded by lambda's function body.</p>
+<p>liberty <strong>functional</strong> defines a succession of function class as templates. and they are listed below.</p>
+<table>
+<thead>
+<tr>
+<th>arithmetic</th>
+<th>relation</th>
+<th>logic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>plus<Type></td>
+<td>equal_to<Type></td>
+<td>logical_and<Type></td>
+</tr>
+<tr>
+<td>minus<Type></td>
+<td>not_equal_to<Type></td>
+<td>logical_or<Type></td>
+</tr>
+<tr>
+<td>multiplies<Type></td>
+<td>greater<Type></td>
+<td>logical_not<Type></td>
+</tr>
+<tr>
+<td>divides<Type></td>
+<td>greater_equal<Type></td>
+<td></td>
+</tr>
+<tr>
+<td>modulus<Type></td>
+<td>less<Type></td>
+<td></td>
+</tr>
+<tr>
+<td>negate<Type></td>
+<td>less_equal<Type></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>operator <em>type</em>() const is class-type conversions or be named user-define conversions. it allows a type to be an object's return type. this conversion is implicit.</p>
+<p>we can define explicit conversion operator to control class-type conversion.</p>
+<pre><code class="language-cpp">class SmallInt{
+    public:
+        SmallInt(int i = 0): val(i) {}
+        explicit operator int() const {return val;}
+        operator=(int);
+    private:
+        int val;
+};
+
+SmallInt si = 3;
+static_cast&lt;int&gt;(si) + 3; //explicitly request for type conversion
+</code></pre>
+<p>however, if the conversion is used as a condition, the compiler will automatically execute the conversion.</p>
+<h3 id="function-table">function table</h3>
+<p>function, function pointer, function class, lambda expression, classes built by bind and any other classes which has overloaded the call operator are all callable object. function class defined in liberty <strong>functional</strong> can be used to reserve callable object.</p>
+<pre><code class="language-cpp">#include &lt;functional&gt;
+
+function&lt;int(int, int)&gt; f1 = add;
+//f1(4,2) == 6; //equal to add(4,2);
+//f1 == true;   //f1 has a callable object;
+function&lt;int(int, int)&gt; f2 = [](int a, int b){return i * j;};
+</code></pre>
+<p>we can define a function table to reserve callable objects with same <em>retType(args)</em>.</p>
+<pre><code class="language-cpp">map&lt;string, function&lt;int(int,int)&gt;&gt; binops = {
+    {&quot;+&quot;, add}, //each element is a pair
+    {&quot;-&quot;, minus&lt;int&gt;()},
+    {&quot;/&quot;, divide()},
+    {&quot;*&quot;, [](int i, int j){return i * j;}},
+    {&quot;%&quot;, mod},
+};
+
+//in this case, binos[&quot;+&quot;](4,2) == 6;
+</code></pre>
+<h2 id="object-oriented-programming">Object-Oriented Programming</h2>
+<h3 id="inheritance">inheritance</h3>
+<pre><code class="language-cpp">class Quote {
+    public:
+        Quote() = default;
+        Quote(const std::string &amp;book, double sales_price):
+            bookNo(book), price(sales_price) {}
+        std::string isbn() const {
+            return bookNo;
+        }
+        //key word virtual defines a virtual function
+        //which means the base class permits drived classes to override it
+        virtual double net_price(std::size_t n) const {
+            return n * price;
+        }
+        //moreover, if we don't wish our clients use the base class' member function
+        //we need to define this member function to be a pure virtual function as the following code row
+        //notice :the pure virtual function can only be defined in the declaration body
+        virtual double net_price(std::size_t n) const = 0; 
+        virtual ~Quote() = default; //dynamically bind destructor
+    private:
+        std::string bookNo;
+        /*
+        *key word protected serves for those members
+        *which are not supposed to be used by object's users
+        *but needed to be used by derived class
+        */
+    protected:
+        double price = 0.0;     //common price without discount
+};
+
+/*
+*type of class derivation list:colon and a list of base class
+*whose type is base class behind optional assess specifire
+*and splited by comma
+*/
+class Bulk_quote: public Quote {
+    public:
+        Buli_quote() = default;
+        Built_quote(const std::string &amp;, double, std::size_t, double);
+        /*
+        *key word override explicitly declare that this member function
+        *will be used to redefine the base class' virtual function
+        *if not, the compiler will throw error
+        */
+        double net_price(std::size_t) const override;
+    private:
+        //the minimum purchase quantity of discount
+        std::size_t min_qty = 0;
+        double discount = 0.0;
+};
+</code></pre>
+<p>because derived class has its base class member, compiler can implicitly convert it into its base class as a reference or pointer. On the contrary, compiler doesn't allow us to implicitly convert base class object into derived class object. However, if we ensure this action's safety, we can use <strong>static_cast</strong> enforce the conversion. But this action is not recommended. What's more, if the base class has at least one virtual function, we can use <strong>dynamic_cast</strong> to check this conversion's safety and let the compiler divides whether allow or not.</p>
+<p>if a base class defines a static member, the whole inheritance system has only one instance no matter how many derived classes and objects have been defined.</p>
+<p>base class must be defined before defining derived classes.</p>
+<p>key word <strong>final</strong> restrict us from using a class as base class. key word <strong>final</strong> can be used to declare that a virtual function is the final function, which means this function can't be overrode.</p>
+<pre><code class="language-cpp">class NoDerived final {/*details*/}
+//illegal, we can't use Noderived as a base class
+class Bad: public NoDerived {/*details*/}
+</code></pre>
+<p>virtual function can have acquiescent parameters, and its acquiescent parameters depend on the static type of the call.</p>
+<pre><code class="language-cpp">class Base{
+    public:
+        virtual void funcion(int a = 0, int b = 1){/*details*/}
+}
+class Derived: public Base{
+    public:
+        void function(int a = 1, int b = 2) override{/*details*/}
+}
+
+void execuse_function(Base &amp;b){
+    b.function();
+}
+
+int main(){
+    Derived d;
+    execuse_function(d); //execuse Base::function(int a = 0, int b = 1);
+}
+</code></pre>
+<h3 id="scope">scope</h3>
+<p><strong>notions:</strong></p>
+<ul>
+<li>iff the derived class publicly inherits base class can users use the conversions between derived class and base class.</li>
+<li>if the derived class publicly or protected inherits base class, the derived class can use the conversions.</li>
+<li>if the derived class privately inherits base class, the derived class' objects and friends can't use the conversions.</li>
+<li>friend relationship can't be inherited.</li>
+<li><strong>each class controls its members' accessible permissions.</strong></li>
+<li>if we need to change a member's accessible permission, we can use the <em>using</em> declaration in the corresponding action scope</li>
+</ul>
+<pre><code class="language-cpp">class Base{
+    public:
+        std::size_t size() const {return n;}
+    protected:
+        std::size_t n;
+}
+//we inherit the base class in the private scope
+class Derived: private Base{
+    public:
+        //then Base::size() is public 
+        using Base::size;
+    protected:
+        using Base::n;
+}
+</code></pre>
+<p>acquiescent derived scope operators depend on class' type. struct acquiescently owns public scope while class having private scope.</p>
+<p>derived class' scope is combined into base class' scope. thus derived class' member with the same name as base class' has higher priority.</p>
+<p>name lookup precedes type lookup. function declared in the inner scope won't override but cover the outer scope's function.(which remind us to use the <em>override</em> key word. otherwise we must ensure that the derived class's function has the same parameters list as the base class')</p>
+<pre><code class="language-cpp">struct Base{
+    int memfunc();
+}
+
+struct Derived: Base{//Base's scope operator is public
+    int memfunc(int);
+}
+
+Derived d;
+Base b;
+b.memfunc();
+d.memfunc(10);
+d.memfunc();        //error:Base::memfunc() is hided. the right way is written below
+d.Base::memfunc();
+</code></pre>
+<h3 id="dynamic-binding">dynamic binding</h3>
+<pre><code class="language-cpp">double print_total(ostream &amp;os,
+                   const Quote &amp;item, size_t n) {
+    //calling Quote::net_price or Bulk_quote::net_price
+    //depends on item's object type
+    //moreover, accessible members which we can use depend on the static type
+    //for instance, this item below has no right to use Bulk_quote's unique public members
+    double ret = item.net_price(n);
+    os &lt;&lt; &quot;ISBN: &quot; &lt;&lt; item.isbn()
+       &lt;&lt; &quot;# sold: &quot; &lt;&lt; n &lt;&lt; &quot;total due: &quot; &lt;&lt; ret &lt;&lt; endl;
+    return ret;
+}
+//if we don'y want to use dynamic binding, we need to explicitly declare the scope
+double ret = item-&gt;Quote::net_price(42);
+</code></pre>
+<p>now, we need to consider this situation where we delete a derived object pointed by a base class pointer. we must ensure that the delete command executes the derived object's destructor. So we declare the base class' destructor as a virtual function to solve this problem. what's more, virtual destructor will impede generating movement operation.</p>
+<p>What's more, if we use containers to save objects, it is supposed to indirectly save it. An common usage is using pointer. Then we are able to use base class pointer calling derived objects.</p>
+<h2 id="template">template</h2>
+<pre><code class="language-cpp">template &lt;typename T&gt; //key word:template
+                      //&lt;template T&gt; is template parameter list
+                      //template parameters are divided by comma
+/*
+*moerover, key word typename is the same with key word class in this situation
+*/
+int compare(const T&amp; v1, const T&amp; v2) {
+    if (v1 &gt; v2) return -1;
+    else if (v2 &lt; v1) return 1;
+    else return 0;
+}
+//type parameter can be used as return type or parameter type
+//it can be used as variables declaration and type translation, as well
+template &lt;typename T&gt;
+T foo(T* p) {
+    T tmp = *p;
+    //omitted details
+    return T;
+}
+/*
+*we can define nontype parameter and the parameter's value is provided by
+*clients or compiler
+*in this case, compiler provide nontype parameters int values depends on
+*const char array's length
+*nontype parameter can be int, object/function pointer or lvalue reference
+*/
+template&lt;unsigned N, unsigned M&gt;
+int compare(const char (&amp;p1)[N], const char (&amp;p2)[M]){
+    return strcmp(p1,p2);
+}
+/*
+*template can be declared as inline or constexpr
+*this declaration should be put between template parameter list and return type
+*/
+template&lt;typename T&gt; inline T min(const T&amp;, const T&amp;);
+</code></pre>
+<p><strong>principle</strong>: template function's parameters are supposed to be const reference, which guarantees non-copyable object's availability.</p>
+<p>if we want to define a class member function out of the class body, it's type should be:</p>
+<pre><code class="language-cpp">template &lt;typename&gt;
+return-type class-name::member-name(parameter-list) {function-bod}
+</code></pre>
+<p>By default, template class' member function is instantiated when it is called, which help us to use a template class even though there are some member function incompatible with a type, we can use part of class functions.</p>
+<h3 id="friend-declaration">friend declaration</h3>
+<pre><code class="language-cpp">//friend declaration
+template &lt;typename T&gt; class Pal;
+class C {
+    friend class Pal&lt;C&gt;; //Pal instantiated by class C is a friend
+    template &lt;typename T&gt; friend class Pal2; //each instantiated Pal2 is C's friend
+};
+template &lt;typename T&gt; class C2 {
+    friend class Pal&lt;T&gt;;
+    template &lt;typename X&gt; friend class Pal2;//each instantiated Pal2 is each instantiated C2's friend
+                                       //notice: friend's typename should be different from template class'
+    friend class Pal3; //Pal3 is a non-template class, every instantiated C2 is Pal3's friend
+};
+//let template's typename as friend
+template &lt;typename T&gt;class C3 {
+    friend T; //type T is friend of C3 instantiated by T
+};
+</code></pre>
+<p>if a template class contains static members, each type instantiated class has its own static members.</p>
+<p>if we access a type name from a template class, we need to use the key word <strong>typename</strong> to explicitly ask compiler treats the name as a type name.</p>
+<p>we can define default template argument, like code below.</p>
+<pre><code class="language-cpp">template &lt;typename T, typename F = less&lt;T&gt;&gt;
+int compare(const T&amp; v1, const T&amp; v2, F f=F()){
+    if (f(v1,v2)) return -1;
+    if (f(v2,v1)) return 1;
+    return 0;
+}
+//even if all the parameters of a template's typename parameter list is default argued
+//we have to use angle brackets to ask compiler instantiate a class from a template
+template &lt;typename T = int&gt; class tmp_array{/*details*/};
+tmp_array&lt;&gt; a;
+</code></pre>
+<p>Besides, it is known that once we define a template class' type, compiler instantiates a class instance. But this activity faces an embarrassing situation. Once we create a project and use template class with the same type in different file, the compiler will instantiates several instances in each file. Which may be a mass overhead. We can use the key word <strong>extern</strong> to declare a class to prevent from such overhead.</p>
+<pre><code class="language-cpp">extern template class Blob&lt;string&gt;;             //declaration
+template int compare(const int&amp;, const int&amp;);   //definition
+                                                //in this case, compiler will instantiates the whole members
+                                                //thus the type must apply to every member
+
+int main() {
+    Blob&lt;string&gt; sa1, sa2; //compiler instantiates class in other file
+                        //Thus key word extern expresses that there is a definition in our project
+}
+</code></pre>
+<p>and if we can't make sure what the return type definitely is, we can use the tail-set return to declare function's return type</p>
+<pre><code class="language-cpp">//using tail-set return to explicitly declare function's return type
+template &lt;typename It&gt;
+auto fcn(It beg, It end) -&gt; decltype(*beg) {
+    //details
+    return *beg;
+}
+</code></pre>
+<h3 id="reference-collapsing">reference collapsing:</h3>
+<blockquote>
+<p>X&amp; &amp;, X&amp; &amp;&amp;, X&amp;&amp; &amp; will collapse to X&amp;</p>
+<p>X&amp;&amp; &amp;&amp; will be collapse to X&amp;&amp;</p>
+</blockquote>
+<p>By define a parameter as an rvalue reference, we can save all of argument's type-info. By using reference, we can save the const-info. By define parameters as rvalue references, we can use reference collapsing to save arguments' reference characteristic.</p>
+<pre><code class="language-cpp">template &lt;typename F,typename T1, typename T2&gt;
+void flip(F f, T1 &amp;&amp;t1, T2 &amp;&amp;t2) {
+    f(t1, t2);
+}
+</code></pre>
+<p>However, function expression returns an lvalue, which restrict us from binding an rvalue reference to an rvalue reference. In this case, we need to use the lib function <strong>std::forward</strong>, which is defined in lib <em>utility</em>, to save the reference type(by using the reference collapsing). Thus, we modifies the original code to the below one</p>
+<pre><code class="language-cpp">template &lt;typename F,typename T1, typename T2&gt;
+void flip(F f, T1 &amp;&amp;t1, T2 &amp;&amp;t2) {
+    f(std::forward&lt;T1&gt;(t1), std::forward&lt;T2&gt;(t2));
+}
+</code></pre>
+<p>When we overload a template function, compiler will chose the more specialized one. Thus if we define a template function</p>
+<pre><code class="language-cpp">template &lt;typename T&gt; string func(T &amp;a) {/*details*/}
+template &lt;typename T&gt; string func(T *a) {/*details*/}
+</code></pre>
+<p>and we hope the compiler may cope with <em>char</em> &amp; <em>const char</em> as <em>string</em>, we need to define two specialized overloaded function</p>
+<pre><code class="language-cpp">string func(const string&amp;); //declare a string type instance to avoid from default call 
+string func(char *p) {return func(string(p));}
+string func(const char *p) {return func(string(p));}
+</code></pre>
+<h3 id="parameter-packet">parameter packet</h3>
+<p>we use symbol <strong>...</strong> after keyword <em>typename</em> or <em>class</em> to express indefinite number of parameters</p>
+<pre><code class="language-cpp">//Args is a template parameter packet, rest is a function parameter packet
+//Args means zero or several template parameters
+//rest means zero or several function parameters
+//types in packet can be different from each other
+template &lt;typename T, typename... Args&gt;
+void foo(const T &amp;t, const Args&amp;... rest){
+    cout&lt;&lt;T&lt;&lt;&quot;\t&quot;;
+    print(cout, rest)...;
+    return;
+}
+</code></pre>
+<p>we can use <strong>sizeof</strong> to calculate the number of parameters in the packet</p>
+<p><strong>call packet parameters</strong>:</p>
+<pre><code class="language-cpp">//end the recursion and print the last element
+template &lt;typename T&gt;
+ostream &amp;print(ostream &amp;os, const T &amp;t) {
+    return os &lt;&lt; t;
+}
+
+//recursion call
+template &lt;typename T, typename... Args&gt;
+ostream &amp;print(ostream &amp;os, const T &amp;t, const Args&amp;... rest) {
+    os &lt;&lt; t &lt;&lt; &quot;\t&quot;;
+    return print(os, rest...);
+}
+
+int main() {
+    int i = 1;
+    double d = 2.0;
+    long l = 321;
+    string s = &quot;hello world!&quot;;
+    foo(cout, i, d, l, s);
+    return 0;
+}
+//output:1       2       321     hello world!
+</code></pre>
+<h3 id="specialize">specialize</h3>
+<pre><code class="language-cpp">//specialize
+template &lt;typename T&gt;
+int compare(const T &amp;, const T &amp;);
+
+template &lt;size_t N, size_t M&gt;
+int compare(const char(&amp;)[N], const char(&amp;)[M]); //const char(&amp;)[M] is a reference to an char array
+
+//a specialized instance of function compare
+template &lt;&gt;
+int compare(const char *const &amp;, const char *const &amp;);//a reference to an const (or not) pointer
+</code></pre>
+<p><strong>notice</strong>: Once we need a specialized instance but forget to declare or define one, where there is a template suits to this instance's type, the compiler will instantiate an instance. This mistake won't be checked up. Thus we are supposed to define templates with the same name in the same header file. And put the specialized instances after those template. Certainly we need to check up whether we have declared an instance or not.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="../../../.." class="md-footer__link md-footer__link--prev" aria-label="上一页: 江子扬的笔记" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              江子扬的笔记
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      
+    
+  </body>
+</html>
