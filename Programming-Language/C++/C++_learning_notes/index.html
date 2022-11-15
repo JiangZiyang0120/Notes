@@ -12,7 +12,7 @@
         <meta name="author" content="江子扬-Jasper Yang">
       
       
-        <link rel="canonical" href="https://jzy-planet.com/Notes/Programming%20Language/C%2B%2B/C%2B%2B_learning_notes/">
+        <link rel="canonical" href="https://jzy-planet.com/Notes/Programming-Language/C%2B%2B/C%2B%2B_learning_notes/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
@@ -212,7 +212,7 @@
   
     <li class="md-nav__item">
       <a href="../../.." class="md-nav__link">
-        江子扬的笔记
+        Home
       </a>
     </li>
   
@@ -421,21 +421,21 @@
         
           <li class="md-nav__item">
   <a href="#shared_ptr" class="md-nav__link">
-    shared_ptr&lt;&gt;
+    shared_ptr &lt;&gt;
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#unique_ptr" class="md-nav__link">
-    unique_ptr&lt;&gt;
+    unique_ptr &lt;&gt;
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#weak_ptr" class="md-nav__link">
-    weak_ptr&lt;&gt;
+    weak_ptr &lt;&gt;
   </a>
   
 </li>
@@ -761,21 +761,21 @@
         
           <li class="md-nav__item">
   <a href="#shared_ptr" class="md-nav__link">
-    shared_ptr&lt;&gt;
+    shared_ptr &lt;&gt;
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#unique_ptr" class="md-nav__link">
-    unique_ptr&lt;&gt;
+    unique_ptr &lt;&gt;
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#weak_ptr" class="md-nav__link">
-    weak_ptr&lt;&gt;
+    weak_ptr &lt;&gt;
   </a>
   
 </li>
@@ -1037,7 +1037,7 @@
                 
                   
 
-  <a href="https://github.com/JiangZiyang0120/Notes/edit/master/docs/Programming Language/C++/C++_learning_notes.md" title="编辑此页" class="md-content__button md-icon">
+  <a href="https://github.com/JiangZiyang0120/Notes/edit/master/docs/Programming-Language/C++/C++_learning_notes.md" title="编辑此页" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
@@ -1053,11 +1053,11 @@
     {return a.size() &lt; b.size();}
 </code></pre>
 <h2 id="dynamic-memory">dynamic memory</h2>
-<h3 id="shared_ptr">shared_ptr&lt;&gt;</h3>
+<h3 id="shared_ptr">shared_ptr &lt;&gt;</h3>
 <p>use function make_shared&lt;&gt;()</p>
-<h3 id="unique_ptr">unique_ptr&lt;&gt;</h3>
+<h3 id="unique_ptr">unique_ptr &lt;&gt;</h3>
 <p>must be initialized once the pointer is created</p>
-<h3 id="weak_ptr">weak_ptr&lt;&gt;</h3>
+<h3 id="weak_ptr">weak_ptr &lt;&gt;</h3>
 <p>can be assigned</p>
 <h3 id="allocator">allocator</h3>
 <pre><code class="language-cpp">allocator&lt;string&gt; alloc;
@@ -1547,33 +1547,33 @@ strBlobPtr strBlobPtr::operator++(int) {
 </thead>
 <tbody>
 <tr>
-<td>plus<Type></td>
-<td>equal_to<Type></td>
-<td>logical_and<Type></td>
+<td>plus&lt;Type&gt;</td>
+<td>equal_to&lt;Type&gt;</td>
+<td>logical_and&lt;Type&gt;</td>
 </tr>
 <tr>
-<td>minus<Type></td>
-<td>not_equal_to<Type></td>
-<td>logical_or<Type></td>
+<td>minus&lt;Type&gt;</td>
+<td>not_equal_to&lt;Type&gt;</td>
+<td>logical_or&lt;Type&gt;</td>
 </tr>
 <tr>
-<td>multiplies<Type></td>
-<td>greater<Type></td>
-<td>logical_not<Type></td>
+<td>multiplies&lt;Type&gt;</td>
+<td>greater&lt;Type&gt;</td>
+<td>logical_not&lt;Type&gt;</td>
 </tr>
 <tr>
-<td>divides<Type></td>
-<td>greater_equal<Type></td>
+<td>divides&lt;Type&gt;</td>
+<td>greater_equal&lt;Type&gt;</td>
 <td></td>
 </tr>
 <tr>
-<td>modulus<Type></td>
-<td>less<Type></td>
+<td>modulus&lt;Type&gt;</td>
+<td>less&lt;Type&gt;</td>
 <td></td>
 </tr>
 <tr>
-<td>negate<Type></td>
-<td>less_equal<Type></td>
+<td>negate&lt;Type&gt;</td>
+<td>less_equal&lt;Type&gt;</td>
 <td></td>
 </tr>
 </tbody>
