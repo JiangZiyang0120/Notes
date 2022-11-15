@@ -6,25 +6,27 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="用于存放我的笔记">
+        <meta name="description" content="LeetCode第[188]题的笔记">
       
       
         <meta name="author" content="江子扬-Jasper Yang">
       
       
-      <link rel="icon" href="/Notes/assets/images/favicon.png">
+        <link rel="canonical" href="https://jzy-planet.com/Notes/LeetCode/188._Best_Time_to_Buy_and_Sell_Stock_IV/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
-        <title>江子扬的笔记</title>
+        <title>LeetCode 188. Best Time to Buy and Sell Stock IV - 江子扬的笔记</title>
       
     
     
-      <link rel="stylesheet" href="/Notes/assets/stylesheets/main.472b142f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.472b142f.min.css">
       
         
-        <link rel="stylesheet" href="/Notes/assets/stylesheets/palette.08040f6c.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.08040f6c.min.css">
         
       
       
@@ -41,7 +43,7 @@
       
     
     
-    <script>__md_scope=new URL("/Notes/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -65,6 +67,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#analyse" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -75,7 +82,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="/Notes/." title="江子扬的笔记" class="md-header__button md-logo" aria-label="江子扬的笔记" data-md-component="logo">
+    <a href="../.." title="江子扬的笔记" class="md-header__button md-logo" aria-label="江子扬的笔记" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -94,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              LeetCode 188. Best Time to Buy and Sell Stock IV
             
           </span>
         </div>
@@ -173,7 +180,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/Notes/." title="江子扬的笔记" class="md-nav__button md-logo" aria-label="江子扬的笔记" data-md-component="logo">
+    <a href="../.." title="江子扬的笔记" class="md-nav__button md-logo" aria-label="江子扬的笔记" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -204,7 +211,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Notes/." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         江子扬的笔记
       </a>
     </li>
@@ -217,12 +224,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
       
@@ -245,7 +254,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Notes/LeetCode/1687._Delivering_Boxes_from_Storage_to_Ports/" class="md-nav__link">
+      <a href="../1687._Delivering_Boxes_from_Storage_to_Ports/" class="md-nav__link">
         LeetCode 1687. Delivering Boxes from Storage to Ports
       </a>
     </li>
@@ -257,11 +266,55 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="/Notes/LeetCode/188._Best_Time_to_Buy_and_Sell_Stock_IV/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          LeetCode 188. Best Time to Buy and Sell Stock IV
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         LeetCode 188. Best Time to Buy and Sell Stock IV
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#analyse" class="md-nav__link">
+    Analyse
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -273,7 +326,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Notes/LeetCode/1932._Merge_BSTs_to_Create_Single_BST/" class="md-nav__link">
+      <a href="../1932._Merge_BSTs_to_Create_Single_BST/" class="md-nav__link">
         LeetCode 1932. Merge BSTs to Create Single BST
       </a>
     </li>
@@ -347,7 +400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Notes/Programming%20Language/C%2B%2B/C%2B%2B_learning_notes/" class="md-nav__link">
+      <a href="../../Programming%20Language/C%2B%2B/C%2B%2B_learning_notes/" class="md-nav__link">
         C++ learning notes
       </a>
     </li>
@@ -386,6 +439,28 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#analyse" class="md-nav__link">
+    Analyse
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -396,8 +471,48 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+  <a href="https://github.com/JiangZiyang0120/Notes/edit/master/docs/LeetCode/188._Best_Time_to_Buy_and_Sell_Stock_IV.md" title="编辑此页" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h2 id="analyse">Analyse</h2>
+<p>This is another dynamic programming problem similar to <a href="https://jzy-planet.com/2022/09/01/1687.delivering-boxes-from-storage-to-ports/">1687. Delivering Boxes from Storage to Ports</a>. And however, with a limitation of purchase times. We can just use two iteration on this question. One is the iteration of vector prices(obviously), and another is the iteration of purchase times k.
+What's more, we need to purchase a good before selling it. Thus we need to record the purchases. And the code is as below</p>
+<pre><code class="language-cpp">class Solution {
+public:
+    int maxProfit(int k, vector&lt;int&gt;&amp; price) {
+        vector&lt;int&gt; profit(2*k+1, INT_MIN);
+        //if we do nothing, the profit is 0 without doubt
+        profit[0] = 0;
+
+        //the iteration of prices vector
+        for(int j = 0; j &lt; price.size(); j++) {
+            //the iteration of transaction times
+            /*for each i, profit[i+1] is the profit with a good in stock,
+             *and profit[i+2] is the profit after selling goods.
+             */
+            for(int i = 0; i+2 &lt;= 2*k; i += 2){
+                profit[i+1] = max(profit[i+1], profit[i]-price[j]);
+                profit[i+2] = max(profit[i+2], profit[i+1]+price[j]);
+            }
+        }
+        return *max_element(profit.begin(), profit.end());
+    }
+};
+</code></pre>
+<h1 id="reference">Reference</h1>
+<p><a href="https://jzy-planet.com/2022/09/01/1687.delivering-boxes-from-storage-to-ports/">1687. Delivering Boxes from Storage to Ports</a>
+<a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/discuss/2555708/Easy-solution-Explained-oror-Beginner-Friendly-oror-Best-Method">✅Easy solution Explained || Beginner Friendly 🔥||✔️ Best Method</a></p>
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -407,6 +522,42 @@
       </main>
       
         <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="../1687._Delivering_Boxes_from_Storage_to_Ports/" class="md-footer__link md-footer__link--prev" aria-label="上一页: LeetCode 1687. Delivering Boxes from Storage to Ports" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              LeetCode 1687. Delivering Boxes from Storage to Ports
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../1932._Merge_BSTs_to_Create_Single_BST/" class="md-footer__link md-footer__link--next" aria-label="下一页: LeetCode 1932. Merge BSTs to Create Single BST" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              LeetCode 1932. Merge BSTs to Create Single BST
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -429,10 +580,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "/Notes/", "features": [], "search": "/Notes/assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="/Notes/assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
       
     
   </body>
