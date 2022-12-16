@@ -407,8 +407,36 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Programming-Language/C%2B%2B/C%2B%2B_learning_notes/" class="md-nav__link">
+      <a href="../../Programming%20Language/C%2B%2B/C%2B%2B_learning_notes/" class="md-nav__link">
         C++ learning notes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Programming%20Language/C%2B%2B/C%2B%2B%E6%A8%A1%E6%9D%BF%E5%85%83%E7%BC%96%E7%A8%8B%28Template%20Meta-Programming%29/" class="md-nav__link">
+        C++模板元编程(Template Meta-Programming)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Programming%20Language/C%2B%2B/Effective_C%2B%2B/" class="md-nav__link">
+        Effective C++
       </a>
     </li>
   
@@ -496,113 +524,115 @@
   <h1>LeetCode 1932. Merge BSTs to Create Single BST</h1>
 
 <h2 id="analyse">Analyse</h2>
-<p>This question should be a medium question 😂</p>
-<p>This question doesn't request any profound algorithms but does need to notice many details. Let's build this tree step by step.</p>
-<p>First, we need to find the tree's root. And we can guarantee that the root node must exists only once. And it must be the only node exists only one time.</p>
-<pre><code class="language-cpp">map&lt;int, TreeNode *&gt; val2Tree;
-map&lt;int,int&gt; val2count;
-for(auto &amp;t : trees){
-    val2Tree[t-&gt;val] = t;
-    ++val2count[t-&gt;val];
-    //to avoid dereferencing nullptr
-    ++val2count[t-&gt;left ? t-&gt;left-&gt;val : 0];
-    ++val2count[t-&gt;right ? t-&gt;right-&gt;val : 0];
-}
-</code></pre>
+<p>{% note danger simple %}
+This question should be a medium question 😂
+{% endnote %}
+This question doesn't request any profound algorithms but does need to notice many details. Let's build this tree step by step.
+First, we need to find the tree's root. And we can guarantee that the root node must exists only once. And it must be the only node exists only one time.</p>
+<div class="highlight"><pre><span></span><code><span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">TreeNode</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="n">val2Tree</span><span class="p">;</span><span class="w"></span>
+<span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">val2count</span><span class="p">;</span><span class="w"></span>
+<span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="o">&amp;</span><span class="n">t</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">trees</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="n">val2Tree</span><span class="p">[</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="o">++</span><span class="n">val2count</span><span class="p">[</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//to avoid dereferencing nullptr</span>
+<span class="w">    </span><span class="o">++</span><span class="n">val2count</span><span class="p">[</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">t</span><span class="o">-&gt;</span><span class="n">left</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="o">++</span><span class="n">val2count</span><span class="p">[</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">t</span><span class="o">-&gt;</span><span class="n">right</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
 <p>Then, we could build the Tree from the root node</p>
-<pre><code class="language-cpp">for(auto &amp;t : trees){
-    if(val2count[t-&gt;val] == 1){
-        //details
-    }
-}
-//If there is no valid root node, we can't build a BST
-return nullptr;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="o">&amp;</span><span class="n">t</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">trees</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">val2count</span><span class="p">[</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">){</span><span class="w"></span>
+<span class="w">        </span><span class="c1">//details</span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="c1">//If there is no valid root node, we can&#39;t build a BST</span>
+<span class="k">return</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
 <p>Now, we just need to link each node from top to bottom.</p>
-<pre><code class="language-cpp">bool TreeLink(TreeNode *Tree, map&lt;int, TreeNode *&gt; &amp;val2Tree, int minLeft = INT_MIN, int maxRight = INT_MAX) {
-    // If this node has no child node, it is obviously valid
-    if (Tree == nullptr)
-        return true;
-    // We need to judge if this node satisfies the value scope of BST
-    if (Tree-&gt;val &lt;= minLeft || Tree-&gt;val &gt;= maxRight)
-        return false;
-    // If Tree has no child(where Tree-&gt;left == nullptr == Tree-&gt;right),
-    // find the node with the same value and link them.
-    if (Tree-&gt;left == Tree-&gt;right) {
-        auto temp = val2Tree.find(Tree-&gt;val);
-        // If the node exists and be different from Tree
-        if (temp != val2Tree.end() &amp;&amp; Tree != temp-&gt;second) {
-            Tree-&gt;left = temp-&gt;second-&gt;left;
-            Tree-&gt;right = temp-&gt;second-&gt;right;
-            // after linking, we needn't to notice this node anymore
-            val2Tree.erase(temp);
-        }
-    }
-    // iteration from top to bottom.
-    /**
-    * we need to adjust the child node's scope, where its left child's
-    * max value shouldn't be more than its value. And vice versa
-    */
-    return TreeLink(Tree-&gt;left, val2Tree, minLeft, Tree-&gt;val) &amp;&amp;
-           TreeLink(Tree-&gt;right, val2Tree, Tree-&gt;val, maxRight);
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="kt">bool</span><span class="w"> </span><span class="nf">TreeLink</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">Tree</span><span class="p">,</span><span class="w"> </span><span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">TreeNode</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">val2Tree</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">minLeft</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INT_MIN</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">maxRight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INT_MAX</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// If this node has no child node, it is obviously valid</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Tree</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// We need to judge if this node satisfies the value scope of BST</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Tree</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">minLeft</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">Tree</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">maxRight</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// If Tree has no child(where Tree-&gt;left == nullptr == Tree-&gt;right),</span>
+<span class="w">    </span><span class="c1">// find the node with the same value and link them.</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Tree</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Tree</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">val2Tree</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">Tree</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// If the node exists and be different from Tree</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">temp</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">val2Tree</span><span class="p">.</span><span class="n">end</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">temp</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">Tree</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="o">-&gt;</span><span class="n">second</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="n">Tree</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="o">-&gt;</span><span class="n">second</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// after linking, we needn&#39;t to notice this node anymore</span>
+<span class="w">            </span><span class="n">val2Tree</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">temp</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// iteration from top to bottom.</span>
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">    * we need to adjust the child node&#39;s scope, where its left child&#39;s</span>
+<span class="cm">    * max value shouldn&#39;t be more than its value. And vice versa</span>
+<span class="cm">    */</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">TreeLink</span><span class="p">(</span><span class="n">Tree</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">val2Tree</span><span class="p">,</span><span class="w"> </span><span class="n">minLeft</span><span class="p">,</span><span class="w"> </span><span class="n">Tree</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"></span>
+<span class="w">           </span><span class="n">TreeLink</span><span class="p">(</span><span class="n">Tree</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">val2Tree</span><span class="p">,</span><span class="w"> </span><span class="n">Tree</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="n">maxRight</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
 <h2 id="whole-solution">Whole Solution</h2>
-<pre><code class="language-cpp">class Solution {
-public:
-    bool TreeLink(TreeNode *Tree, map&lt;int, TreeNode *&gt; &amp;val2Tree, int minLeft = INT_MIN, int maxRight = INT_MAX) {
-        // If this node has no child node, it is obviously valid
-        if (Tree == nullptr)
-            return true;
-        // We need to judge if this node satisfies the value scope of BST
-        if (Tree-&gt;val &lt;= minLeft || Tree-&gt;val &gt;= maxRight)
-            return false;
-        // If Tree has no child(where Tree-&gt;left == nullptr == Tree-&gt;right),
-        // find the node with the same value and link them.
-        if (Tree-&gt;left == Tree-&gt;right) {
-            auto temp = val2Tree.find(Tree-&gt;val);
-            // If the node exists and be different from Tree
-            if (temp != val2Tree.end() &amp;&amp; Tree != temp-&gt;second) {
-                Tree-&gt;left = temp-&gt;second-&gt;left;
-                Tree-&gt;right = temp-&gt;second-&gt;right;
-                // after linking, we needn't to notice this node anymore
-                val2Tree.erase(temp);
-            }
-        }
-        // iteration from top to bottom.
-        /**
-        * we need to adjust the child node's scope, where its left child's
-        * max value shouldn't be more than its value. And vice versa
-        */
-        return TreeLink(Tree-&gt;left, val2Tree, minLeft, Tree-&gt;val) &amp;&amp;
-               TreeLink(Tree-&gt;right, val2Tree, Tree-&gt;val, maxRight);
-    }
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">TreeLink</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">Tree</span><span class="p">,</span><span class="w"> </span><span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">TreeNode</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">val2Tree</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">minLeft</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INT_MIN</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">maxRight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INT_MAX</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// If this node has no child node, it is obviously valid</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Tree</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// We need to judge if this node satisfies the value scope of BST</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Tree</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">minLeft</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">Tree</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">maxRight</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// If Tree has no child(where Tree-&gt;left == nullptr == Tree-&gt;right),</span>
+<span class="w">        </span><span class="c1">// find the node with the same value and link them.</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Tree</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Tree</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">auto</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">val2Tree</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">Tree</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// If the node exists and be different from Tree</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">temp</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">val2Tree</span><span class="p">.</span><span class="n">end</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">temp</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">Tree</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="o">-&gt;</span><span class="n">second</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span><span class="w"></span>
+<span class="w">                </span><span class="n">Tree</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="o">-&gt;</span><span class="n">second</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span><span class="w"></span>
+<span class="w">                </span><span class="c1">// after linking, we needn&#39;t to notice this node anymore</span>
+<span class="w">                </span><span class="n">val2Tree</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">temp</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// iteration from top to bottom.</span>
+<span class="w">        </span><span class="cm">/**</span>
+<span class="cm">        * we need to adjust the child node&#39;s scope, where its left child&#39;s</span>
+<span class="cm">        * max value shouldn&#39;t be more than its value. And vice versa</span>
+<span class="cm">        */</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">TreeLink</span><span class="p">(</span><span class="n">Tree</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">val2Tree</span><span class="p">,</span><span class="w"> </span><span class="n">minLeft</span><span class="p">,</span><span class="w"> </span><span class="n">Tree</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"></span>
+<span class="w">               </span><span class="n">TreeLink</span><span class="p">(</span><span class="n">Tree</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">val2Tree</span><span class="p">,</span><span class="w"> </span><span class="n">Tree</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="n">maxRight</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
 
-    TreeNode *canMerge(vector&lt;TreeNode *&gt; &amp;trees) {
-        map&lt;int, TreeNode *&gt; val2Tree;
-        map&lt;int, int&gt; val2count;
-        for (auto &amp;t: trees) {
-            val2Tree[t-&gt;val] = t;
-            ++val2count[t-&gt;val];
-            //to avoid dereferencing nullptr
-            ++val2count[t-&gt;left ? t-&gt;left-&gt;val : 0];
-            ++val2count[t-&gt;right ? t-&gt;right-&gt;val : 0];
-        }
-        for (auto &amp;t: trees) {
-            if (val2count[t-&gt;val] == 1) {
-                /*
-                * If val2Tree's size dosen't equal to 1, there must be some 
-                * danling node which exists only once too.
-                */
-                return TreeLink(t, val2Tree) &amp;&amp; val2Tree.size() == 1 ? t : nullptr;
-            }
-        }
-        //If there is no valid root node, we can't build a BST
-        return nullptr;
-    }
-};
-</code></pre>
+<span class="w">    </span><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">canMerge</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">trees</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">TreeNode</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="n">val2Tree</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">val2count</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="o">&amp;</span><span class="n">t</span><span class="o">:</span><span class="w"> </span><span class="n">trees</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">val2Tree</span><span class="p">[</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="o">++</span><span class="n">val2count</span><span class="p">[</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">];</span><span class="w"></span>
+<span class="w">            </span><span class="c1">//to avoid dereferencing nullptr</span>
+<span class="w">            </span><span class="o">++</span><span class="n">val2count</span><span class="p">[</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">t</span><span class="o">-&gt;</span><span class="n">left</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="p">];</span><span class="w"></span>
+<span class="w">            </span><span class="o">++</span><span class="n">val2count</span><span class="p">[</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">t</span><span class="o">-&gt;</span><span class="n">right</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="p">];</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="o">&amp;</span><span class="n">t</span><span class="o">:</span><span class="w"> </span><span class="n">trees</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">val2count</span><span class="p">[</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="cm">/*</span>
+<span class="cm">                * If val2Tree&#39;s size dosen&#39;t equal to 1, there must be some </span>
+<span class="cm">                * danling node which exists only once too.</span>
+<span class="cm">                */</span><span class="w"></span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">TreeLink</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">val2Tree</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">val2Tree</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="c1">//If there is no valid root node, we can&#39;t build a BST</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</code></pre></div>
 <h2 id="reference">Reference</h2>
 <p><a href="https://leetcode.com/problems/merge-bsts-to-create-single-bst/">1932. Merge BSTs to Create Single BST</a></p>
 
@@ -641,7 +671,7 @@ public:
       
       
         
-        <a href="../../Programming-Language/C%2B%2B/C%2B%2B_learning_notes/" class="md-footer__link md-footer__link--next" aria-label="下一页: C++ learning notes" rel="next">
+        <a href="../../Programming%20Language/C%2B%2B/C%2B%2B_learning_notes/" class="md-footer__link md-footer__link--next" aria-label="下一页: C++ learning notes" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">

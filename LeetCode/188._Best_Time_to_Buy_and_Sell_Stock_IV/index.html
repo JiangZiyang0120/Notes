@@ -400,8 +400,36 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Programming-Language/C%2B%2B/C%2B%2B_learning_notes/" class="md-nav__link">
+      <a href="../../Programming%20Language/C%2B%2B/C%2B%2B_learning_notes/" class="md-nav__link">
         C++ learning notes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Programming%20Language/C%2B%2B/C%2B%2B%E6%A8%A1%E6%9D%BF%E5%85%83%E7%BC%96%E7%A8%8B%28Template%20Meta-Programming%29/" class="md-nav__link">
+        C++模板元编程(Template Meta-Programming)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Programming%20Language/C%2B%2B/Effective_C%2B%2B/" class="md-nav__link">
+        Effective C++
       </a>
     </li>
   
@@ -482,28 +510,28 @@
 <h2 id="analyse">Analyse</h2>
 <p>This is another dynamic programming problem similar to <a href="https://jzy-planet.com/2022/09/01/1687.delivering-boxes-from-storage-to-ports/">1687. Delivering Boxes from Storage to Ports</a>. And however, with a limitation of purchase times. We can just use two iteration on this question. One is the iteration of vector prices(obviously), and another is the iteration of purchase times k.
 What's more, we need to purchase a good before selling it. Thus we need to record the purchases. And the code is as below</p>
-<pre><code class="language-cpp">class Solution {
-public:
-    int maxProfit(int k, vector&lt;int&gt;&amp; price) {
-        vector&lt;int&gt; profit(2*k+1, INT_MIN);
-        //if we do nothing, the profit is 0 without doubt
-        profit[0] = 0;
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">maxProfit</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">price</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">profit</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">INT_MIN</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="c1">//if we do nothing, the profit is 0 without doubt</span>
+<span class="w">        </span><span class="n">profit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 
-        //the iteration of prices vector
-        for(int j = 0; j &lt; price.size(); j++) {
-            //the iteration of transaction times
-            /*for each i, profit[i+1] is the profit with a good in stock,
-             *and profit[i+2] is the profit after selling goods.
-             */
-            for(int i = 0; i+2 &lt;= 2*k; i += 2){
-                profit[i+1] = max(profit[i+1], profit[i]-price[j]);
-                profit[i+2] = max(profit[i+2], profit[i+1]+price[j]);
-            }
-        }
-        return *max_element(profit.begin(), profit.end());
-    }
-};
-</code></pre>
+<span class="w">        </span><span class="c1">//the iteration of prices vector</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">price</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="c1">//the iteration of transaction times</span>
+<span class="w">            </span><span class="cm">/*for each i, profit[i+1] is the profit with a good in stock,</span>
+<span class="cm">             *and profit[i+2] is the profit after selling goods.</span>
+<span class="cm">             */</span><span class="w"></span>
+<span class="w">            </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">2</span><span class="p">){</span><span class="w"></span>
+<span class="w">                </span><span class="n">profit</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">profit</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">profit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">price</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span><span class="w"></span>
+<span class="w">                </span><span class="n">profit</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">profit</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="n">profit</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">price</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="n">max_element</span><span class="p">(</span><span class="n">profit</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">profit</span><span class="p">.</span><span class="n">end</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</code></pre></div>
 <h1 id="reference">Reference</h1>
 <p><a href="https://jzy-planet.com/2022/09/01/1687.delivering-boxes-from-storage-to-ports/">1687. Delivering Boxes from Storage to Ports</a>
 <a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/discuss/2555708/Easy-solution-Explained-oror-Beginner-Friendly-oror-Best-Method">✅Easy solution Explained || Beginner Friendly 🔥||✔️ Best Method</a></p>
